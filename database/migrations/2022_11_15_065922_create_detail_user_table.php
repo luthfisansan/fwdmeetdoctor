@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateDetailUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('detail_user', function (Blueprint $table) {
             $table->id();
-            $table->string('contact')->unique()->nullable();
+            $table->integer('user_id');
+            $table->integer('type_user_id');
+            $table->string('contact')->nullable();
             $table->longText('address')->nullable();
             $table->longText('photo')->nullable();
             $table->enum('gender', [1,2])->nullable();
-            $table->integer('age')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateTypeUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('config_payment', function (Blueprint $table) {
+        Schema::create('type_user', function (Blueprint $table) {
             $table->id();
-            $table->string('fee');
-            $table->string('vat');
+            $table->string('name')->unique();
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('config_payment');
+        Schema::dropIfExists('type_user');
     }
 };

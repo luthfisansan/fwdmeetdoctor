@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateDoctorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('type_user', function (Blueprint $table) {
+        Schema::create('doctor', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // required
-            $table->timestamps(); // created_at, updated_at
-            $table->softDeletes(); // soft deletes akan menghasilkan field deleted_at
+            $table->integer('specialist_id');
+            $table->string('name');
+            $table->string('fee');
+            $table->longText('photo')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_user');
+        Schema::dropIfExists('doctor');
     }
 };

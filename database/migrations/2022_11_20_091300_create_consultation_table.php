@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateConsultationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('specialist', function (Blueprint $table) {
+        Schema::create('consultation', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('price');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specialist');
+        Schema::dropIfExists('consultation');
     }
 };
