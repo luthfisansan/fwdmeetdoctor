@@ -29,10 +29,12 @@ class UpdateRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => [
-                'required', 'string', 'max:255',
-            ],
+
             // add validation for role this here
+            'title' => [
+                'required', 'string', 'max:255', Rule::unique('role')->ignore($this->role),
+                // Rule unique only works for other record id
+            ],
         ];
     }
 }
