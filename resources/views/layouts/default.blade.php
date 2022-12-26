@@ -12,7 +12,6 @@
 
     </head>
     <body>
-
         {{-- @include('sweetalert::alert') --}}
 
         @include('components.frontsite.header')
@@ -22,9 +21,6 @@
         @stack('before-script')
             @include('includes.frontsite.script')
         @stack('after-script')
-
-        {{-- modals --}}
-        {{-- if you have a modal, create here --}}
 
     </body>
 </html>
