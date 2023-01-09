@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
     <head>
+       
         @include('includes.backsite.meta')
 
         <title>@yield('title') | Meet Doctor Backoffice</title>
@@ -17,6 +18,7 @@
 
     <body class="vertical-layout vertical-menu 2-columns fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
+        @include('sweetalert::alert')
         @include('components.backsite.header')
         @include('components.backsite.menu')
             @yield('content')
