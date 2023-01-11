@@ -5,32 +5,8 @@ namespace App\Http\Controllers\Backsite;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-// use library here
-use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\Response;
-
-// request
-use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
-
-// use everything here
-// use Gate;
-use Auth;
-
-// use model here
-use App\Models\MasterData\ConfigPayment;
-
-class ConfigPaymentController extends Controller
+class TransactionController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -38,9 +14,7 @@ class ConfigPaymentController extends Controller
      */
     public function index()
     {
-        $config_payment = ConfigPayment::all();
-
-        return view('pages.backsite.master-data.config-payment.index', compact('config_payment'));
+        //
     }
 
     /**
@@ -81,10 +55,9 @@ class ConfigPaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ConfigPayment $config_payment)
+    public function edit($id)
     {
-
-        return view('pages.backsite.master-data.config-payment.edit', compact('config_payment'));
+        //
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Rrole;
+namespace App\Http\Requests\Role;
 
 use App\Models\ManagementAccess\Role;
 // use Gate;
