@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backsite;
+namespace App\Http\Controllers\backsite;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,17 +9,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
-// request
-use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
-
 // use everything here
 // use Gate;
 use Auth;
 
 // use model here
-use App\Models\MasterData\ConfigPayment;
+use App\Models\Operational\Appointment;
+use App\Models\Operational\Doctor;
+use App\Models\Operational\Transaction;
+use App\Models\User;
+use App\Models\MasterData\Consultation;
 
-class ConfigPaymentController extends Controller
+// thirdparty package
+
+class ReportAppointmentController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -38,9 +41,9 @@ class ConfigPaymentController extends Controller
      */
     public function index()
     {
-        $config_payment = ConfigPayment::all();
+        $appointment = Appointment::orderBy('created_at', 'desc')->get();
 
-        return view('pages.backsite.master-data.config-payment.index', compact('config_payment'));
+        return view('pages.backsite.operational.appointment.index', compact('appointment'));
     }
 
     /**
@@ -81,10 +84,9 @@ class ConfigPaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ConfigPayment $config_payment)
+    public function edit($id)
     {
-
-        return view('pages.backsite.master-data.config-payment.edit', compact('config_payment'));
+        return abort(404);
     }
 
     /**
@@ -94,16 +96,9 @@ class ConfigPaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateConfigPaymentRequest $request, ConfigPayment $config_payment)
+    public function update(Request $request, $id)
     {
-        // get all request from frontsite
-        $data = $request->all();
-
-        // update to database
-        $config_payment->update($data);
-
-        alert()->success('Success Message', 'Successfully updated config payment');
-        return redirect()->route('backsite.config_payment.index');
+        return abort(404);
     }
 
     /**
@@ -114,6 +109,6 @@ class ConfigPaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return abort(404);
     }
 }
