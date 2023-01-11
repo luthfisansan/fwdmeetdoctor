@@ -113,14 +113,12 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        // get all request from frontsite
-        $data = $request->all();
+        $role->update($request->all());
 
-        // update to database
-        $role->update($data);
+        $role->permission()->sync($request->input('permission', []));
 
-        alert()->success('Success Message', 'Successfully updated Role');
-        return redirect()->route('backsite.Role.index');
+        alert()->success('Success Message', 'Successfully updated role');
+        return redirect()->route('backsite.role.index');
     }
     /**
      * Remove the specified resource from storage.
