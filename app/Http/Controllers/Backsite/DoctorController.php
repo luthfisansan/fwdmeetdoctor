@@ -15,7 +15,6 @@ use App\Http\Requests\Doctor\UpdateDoctorRequest;
 
 // use everything here
 use Auth;
-
 use Illuminate\Support\Facades\Gate;
 
 // use model here
