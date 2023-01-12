@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\role;
+namespace App\Http\Requests\User;
 
 use App\Models\User;
 // use Gate;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Illuminate\Validation\Rule;
 
-class StoreRoleRequest extends FormRequest
+class StoreUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
