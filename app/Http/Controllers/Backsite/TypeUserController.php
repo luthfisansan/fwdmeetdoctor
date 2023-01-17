@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 // use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 // use everything here
-// use Gate;
-use Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 // use model here
 use App\Models\MasterData\TypeUser;
@@ -36,9 +37,9 @@ class TypeUserController extends Controller
      */
     public function index()
     {
-        $type_user = TypeUser::where('id', 1)->first();
+        abort_if(Gate::denies('type_user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        dd($type_user);
+        $type_user = TypeUser::all();
 
         return view('pages.backsite.management-access.type-user.index', compact('type_user'));
     }

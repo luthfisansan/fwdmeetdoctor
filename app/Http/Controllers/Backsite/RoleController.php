@@ -14,14 +14,16 @@ use App\Http\Requests\Role\StoreRoleRequest;
 use App\Http\Requests\Role\UpdateRoleRequest;
 
 // use everything here
-use Gate;
-use Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 // use model here
 use App\Models\ManagementAccess\Role;
 use App\Models\ManagementAccess\RoleUser;
 use App\Models\ManagementAccess\Permission;
 use App\Models\ManagementAccess\PermissionRole;
+
+// thirdparty package
 
 class RoleController extends Controller
 {
@@ -42,6 +44,8 @@ class RoleController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('role_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $role = Role::orderBy('created_at', 'desc')->get();
 
         return view('pages.backsite.management-access.role.index', compact('role'));
@@ -83,6 +87,8 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
+        abort_if(Gate::denies('role_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         // need more notes here
         $role->load('permission');
 
@@ -97,6 +103,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        abort_if(Gate::denies('role_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         // need more notes here
         $permission = Permission::all();
         $role->load('permission');
@@ -113,8 +121,8 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
+        // need more notes here
         $role->update($request->all());
-
         $role->permission()->sync($request->input('permission', []));
 
         alert()->success('Success Message', 'Successfully updated role');
@@ -128,6 +136,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
+        abort_if(Gate::denies('role_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         // need more notes here
         $role->forceDelete();
 

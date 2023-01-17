@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
 
 // use everything here
-// use Gate;
+use Gate;
 use Auth;
 
 // use model here
@@ -38,6 +38,8 @@ class ConfigPaymentController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('config_payment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $config_payment = ConfigPayment::all();
 
         return view('pages.backsite.master-data.config-payment.index', compact('config_payment'));
@@ -83,6 +85,7 @@ class ConfigPaymentController extends Controller
      */
     public function edit(ConfigPayment $config_payment)
     {
+        abort_if(Gate::denies('config_payment_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('pages.backsite.master-data.config-payment.edit', compact('config_payment'));
     }
@@ -99,6 +102,11 @@ class ConfigPaymentController extends Controller
         // get all request from frontsite
         $data = $request->all();
 
+        // re format before push to table
+        $data['fee'] = str_replace(',', '', $data['fee']);
+        $data['fee'] = str_replace('IDR ', '', $data['fee']);
+        $data['vat'] = str_replace(',', '', $data['vat']);
+
         // update to database
         $config_payment->update($data);
 
@@ -114,6 +122,6 @@ class ConfigPaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return abort(404);
     }
 }
