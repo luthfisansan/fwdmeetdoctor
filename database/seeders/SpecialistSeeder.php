@@ -21,7 +21,7 @@ class SpecialistSeeder extends Seeder
         $specialist = [
             [
                 'name' => 'Dermatology',
-                'price' => '250000',  
+                'price' => '250000',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
@@ -51,7 +51,7 @@ class SpecialistSeeder extends Seeder
             ],
             [
                 'name' => 'Orthodontics',
-                'price' => '900000', 
+                'price' => '900000',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
@@ -63,9 +63,9 @@ class SpecialistSeeder extends Seeder
             ],
             [
                 'name' => 'Periodontics',
-                'price' => '250000', 
+                'price' => '250000',
                 'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),  
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'name' => 'Prosthodontics',
@@ -92,6 +92,7 @@ class SpecialistSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
         ];
+
         // this array $specialist will be insert to table 'specialist'
         Specialist::insert($specialist);
     }

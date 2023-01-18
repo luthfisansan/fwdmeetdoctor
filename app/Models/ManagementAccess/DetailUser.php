@@ -46,5 +46,4 @@ class DetailUser extends Model
         // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
-
 }

@@ -5,10 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-use App\Models\MasterData\TypeUser;
+use App\Models\ManagementAccess\Role;
 use Illuminate\Support\Facades\DB;
 
-class TypeUserSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,26 +17,34 @@ class TypeUserSeeder extends Seeder
      */
     public function run()
     {
-        // create data here
-        $type_user = [
+        $role = [
             [
-                'name' => 'Admin',
+                'title'      => 'Super Admin', // 1
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name' => 'Dokter',
+                'title'      => 'Admin', // 2
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name' => 'Pasien',
+                'title'      => 'Staff Hospital', // 3
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'title'      => 'Doctor', // 4
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'title'      => 'Patient', // 5
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
         ];
 
-        // this array $type_user will be insert to table 'type_user'
-        TypeUser::insert($type_user);
+        Role::insert($role);
     }
 }

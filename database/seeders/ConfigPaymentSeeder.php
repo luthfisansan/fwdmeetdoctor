@@ -21,10 +21,13 @@ class ConfigPaymentSeeder extends Seeder
         $config_payment = [
             [
                 'fee' => '150000',
-                'vat' => '20', //vat is percentage
+                'vat' => '20', // vat is percentage
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
         ];
-        // this array $specialist will be insert to table 'specialist'
+
+        // this array $config_payment will be insert to table 'config_payment'
         ConfigPayment::insert($config_payment);
     }
 }

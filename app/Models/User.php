@@ -14,17 +14,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends Authenticatable
 {
     use HasApiTokens;
-    // use HasFactory;
+    use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+
     use SoftDeletes;
+
     protected $dates = [
-        'created_at',
         'updated_at',
+        'created_at',
         'deleted_at',
         'email_verified_at',
     ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -65,20 +68,32 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-    public function appointment()
+
+    // many to many
+    public function role()
     {
-        // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
-        return $this->hasMany('App\Models\Operational\Appointment', 'user_id');
+        return $this->belongsToMany('App\Models\ManagementAccess\Role');
     }
 
+    // one to one
     public function detail_user()
     {
-        // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
-        return $this->hasOne('App\Models\ManagementAcces\DetailUser', 'user_id');
+        return $this->hasOne('App\Models\ManagementAccess\DetailUser', 'user_id');
     }
+
+    // one to many
     public function role_user()
     {
-        // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
-        return $this->hasMany('App\Models\ManagementAcces\RoleUser', 'user_id');
+        return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'user_id');
+    }
+
+    public function doctor()
+    {
+        return $this->hasOne('App\Models\Operational\Doctor', 'user_id');
+    }
+
+    public function appointment()
+    {
+        return $this->hasMany('App\Models\Operational\Appointment', 'user_id');
     }
 }
