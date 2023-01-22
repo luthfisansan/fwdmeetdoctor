@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 // use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
 
 // use everything here
-use Gate;
+use Illuminate\Auth\Access\Gate;
 use Auth;
 
 // use model here
@@ -61,7 +59,7 @@ class ConfigPaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($request)
     {
         return abort(404);
     }

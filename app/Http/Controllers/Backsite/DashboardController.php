@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 // use everything here
-use Gate;
+use Illuminate\Auth\Access\Gate;
 use Auth;
 
 class DashboardController extends Controller
@@ -43,7 +43,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return abort();
+        return abort(404);
     }
 
     /**
@@ -54,7 +54,7 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        return abort();
+        return abort(404);
     }
 
     /**
@@ -65,7 +65,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        return abort();
+        return abort(404);
     }
 
     /**
@@ -76,7 +76,7 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        return abort();
+        return abort(404);
     }
 
     /**
@@ -88,7 +88,7 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return abort();
+        return abort(404);
     }
 
     /**
@@ -99,6 +99,6 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        return abort();
+        return abort(404);
     }
 }

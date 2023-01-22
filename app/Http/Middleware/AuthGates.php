@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\ManagementAccess\Role;
 use Illuminate\Support\Facades\Gate;
 
@@ -20,8 +21,7 @@ class AuthGates
     public function handle(Request $request, Closure $next)
     {
         // get all user by session browser
-
-        $user = \Auth()::user();
+        $user = \auth()->user();
 
         // checking validation middleware
         // system on or not

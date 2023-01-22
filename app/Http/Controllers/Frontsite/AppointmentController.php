@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+
 // use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,7 +54,7 @@ class AppointmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($request)
     {
         return abort(404);
     }
@@ -88,7 +88,7 @@ class AppointmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($request, $id)
     {
         return abort(404);
     }

@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-
 use App\Models\ManagementAccess\Role;
+
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class RoleSeeder extends Seeder
@@ -20,28 +19,28 @@ class RoleSeeder extends Seeder
         $role = [
             [
                 'title'      => 'Super Admin', // 1
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2022-04-22 00:00:00',
+                'updated_at' => '2022-04-22 00:00:00',
             ],
             [
                 'title'      => 'Admin', // 2
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2022-04-22 00:00:00',
+                'updated_at' => '2022-04-22 00:00:00',
             ],
             [
                 'title'      => 'Staff Hospital', // 3
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2022-04-22 00:00:00',
+                'updated_at' => '2022-04-22 00:00:00',
             ],
             [
                 'title'      => 'Doctor', // 4
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2022-04-22 00:00:00',
+                'updated_at' => '2022-04-22 00:00:00',
             ],
             [
                 'title'      => 'Patient', // 5
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2022-04-22 00:00:00',
+                'updated_at' => '2022-04-22 00:00:00',
             ],
         ];
 

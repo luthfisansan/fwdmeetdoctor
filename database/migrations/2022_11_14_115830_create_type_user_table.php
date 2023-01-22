@@ -18,7 +18,6 @@ class CreateTypeUserTable extends Migration
             $table->string('name')->unique();
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 

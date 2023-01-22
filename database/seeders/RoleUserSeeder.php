@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-
 use App\Models\User;
 use App\Models\ManagementAccess\RoleUser;
+
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class RoleUserSeeder extends Seeder
@@ -17,7 +16,8 @@ class RoleUserSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        User::findOrFail(1)->role()->sync(1);
+    { {
+            User::findOrFail(1)->role()->sync(1);
+        }
     }
 }

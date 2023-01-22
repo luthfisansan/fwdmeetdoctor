@@ -89,6 +89,7 @@
 @push('after-script')
 
     <script>
+        
         $('.default-table').DataTable( {
             "order": [],
             "paging": true,

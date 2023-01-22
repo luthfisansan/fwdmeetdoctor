@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use  App\http\Models\Operational\Transaction;
 
 class TransactionController extends Controller
 {
@@ -33,7 +33,7 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($request)
     {
         //
     }
@@ -67,7 +67,7 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($request, $id)
     {
         //
     }

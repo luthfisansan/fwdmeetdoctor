@@ -14,7 +14,7 @@ use App\Http\Requests\Consultation\StoreConsultationRequest;
 use App\Http\Requests\Consultation\UpdateConsultationRequest;
 
 // use everything here
-use Gate;
+use Illuminate\Auth\Access\Gate;
 use Auth;
 
 // use model here

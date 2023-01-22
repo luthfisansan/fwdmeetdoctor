@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-
 use App\Models\User;
+
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,8 +23,8 @@ class UserSeeder extends Seeder
                 'email'          => 'admin@mail.com',
                 'password'       => Hash::make('Admin@12345'),
                 'remember_token' => null,
-                'created_at'     => date('Y-m-d H:i:s'),
-                'updated_at'     => date('Y-m-d H:i:s'),
+                'created_at'     => '2022-04-22 00:00:00',
+                'updated_at'     => '2022-04-22 00:00:00',
             ],
         ];
 
