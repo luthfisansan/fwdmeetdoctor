@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 // use everything here
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 use Auth;
 
 class DashboardController extends Controller

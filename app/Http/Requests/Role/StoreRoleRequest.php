@@ -3,7 +3,7 @@
 namespace App\Http\Requests\role;
 
 use App\Models\ManagementAccess\Role;
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
