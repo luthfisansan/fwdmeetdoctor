@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
 
-
 // use library here
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -74,7 +73,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserRequest $request_user, Request $request)
+    public function store(StoreUserRequest $request)
     {
         // get all request from frontsite
         $data = $request->all();
@@ -137,7 +136,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request_user, Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         // get all request from frontsite
         $data = $request->all();

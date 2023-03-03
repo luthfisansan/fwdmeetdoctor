@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 
 // use library here
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use Illuminate\Support\Facades\File;
 // request
 use App\Http\Requests\Doctor\StoreDoctorRequest;
 use App\Http\Requests\Doctor\UpdateDoctorRequest;
@@ -16,7 +18,7 @@ use App\Http\Requests\Doctor\UpdateDoctorRequest;
 // use everything here
 use Auth;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Http\Testing\File;
+// use Illuminate\Http\Testing\File;
 
 // use model here
 use App\Models\Oprational\Doctor;
@@ -27,8 +29,6 @@ use Illuminate\Contracts\Auth\Access\Gate as AuthAccessGate;
 use Illuminate\Support\Facades\Gate as FacadesGate;
 use App\Models\User;
 
-
-// thirdparty package
 
 class DoctorController extends Controller
 {
@@ -56,11 +56,8 @@ class DoctorController extends Controller
 
         // for select2 = ascending a to z
         $specialist = Specialist::orderBy('name', 'asc')->get();
-        $user = User::whereHas('detail_user', function ($query) {
-            $query->where('type_user_id', 2);
-        })->orderBy('name', 'asc')->get();
 
-        return view('pages.backsite.operational.doctor.index', compact('doctor', 'specialist', 'user'));
+        return view('pages.backsite.operational.doctor.index', compact('doctor', 'specialist'));
     }
 
     /**
@@ -90,7 +87,7 @@ class DoctorController extends Controller
 
         // upload process here
         $path = public_path('app/public/assets/file-doctor');
-        if (!File::isDirectory($path)) {
+        if (!File::exists($path)) {
             $response = Storage::makeDirectory('public/assets/file-doctor');
         }
 
@@ -136,11 +133,8 @@ class DoctorController extends Controller
 
         // for select2 = ascending a to z
         $specialist = Specialist::orderBy('name', 'asc')->get();
-        $user = User::whereHas('detail_user', function ($query) {
-            $query->where('type_user_id', 2);
-        })->orderBy('name', 'asc')->get();
 
-        return view('pages.backsite.operational.doctor.edit', compact('doctor', 'specialist', 'user'));
+        return view('pages.backsite.operational.doctor.edit', compact('doctor', 'specialist'));
     }
 
     /**
@@ -174,7 +168,7 @@ class DoctorController extends Controller
 
             // delete old photo from storage
             $data_old = 'storage/' . $get_item;
-            if (File::exist($data_old)) {
+            if (File::exists($data_old)) {
                 File::delete($data_old);
             } else {
                 File::delete('storage/app/public/' . $get_item);

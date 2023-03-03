@@ -39,9 +39,9 @@ class StoreDoctorRequest extends FormRequest
             ],
             'fee' => [
                 'required', 'string', 'max:255',
-            ],
-            'photo' => [
-                'nullable', 'string', 'max:100000',
+                'photo' => [
+                    'nullable', 'mimes:jpeg,svg,png', 'max:10000',
+                ],
             ],
         ];
     }
