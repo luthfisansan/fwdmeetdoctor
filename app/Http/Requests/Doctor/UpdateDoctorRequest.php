@@ -31,9 +31,9 @@ class UpdateDoctorRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => [
-                'required', 'integer',
-            ],
+            // 'user_id' => [
+            //     'required', 'integer',
+            // ],
             'specialist_id' => [
                 'nullable', 'integer',
             ],
@@ -44,7 +44,7 @@ class UpdateDoctorRequest extends FormRequest
                 'required', 'string', 'max:255',
             ],
             'photo' => [
-                'nullable', 'string', 'max:100000',
+                'nullable', 'mimes:jpeg,svg,png', 'max:10000',
             ],
         ];
     }
