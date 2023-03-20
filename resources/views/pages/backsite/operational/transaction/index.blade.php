@@ -68,6 +68,8 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Date</th>
+                                                            <th>Doctor</th>
+                                                            <th>Patient</th>
                                                             <th>Transaction Code</th>
                                                             <th>Doctor</th>
                                                             <th>Patient</th>
@@ -82,7 +84,10 @@
                                                     <tbody>
                                                         @forelse($transaction as $key => $transaction_item)
                                                             <tr data-entry-id="{{ $transaction_item->id }}">
-                                                                <td>{{ isset($transaction_item->created_at) ? date("d/m/Y H:i:s",strtotime($transaction_item->created_at)) : '' }}</td>
+                                                                <td>{{ isset($transaction_item->created_at) ? 
+                                                                date("d/m/Y H:i:s",strtotime($transaction_item->created_at)) : '' }}</td>
+                                                                <td>{{ $transaction_item->appointment->doctor->name ?? '' }}</td>
+                                                                <td>{{ $transaction_item->appointment->user->name ?? '' }}</td>
                                                                 <td>{{ $transaction_item->transaction_code ?? '' }}</td>
                                                                 <td>{{ $transaction_item->appointment->doctor->name ?? '' }}</td>
                                                                 <td>{{ $transaction_item->appointment->user->name ?? '' }}</td>
@@ -100,6 +105,8 @@
                                                     <tfoot>
                                                         <tr>
                                                             <th>Date</th>
+                                                            <th>Doctor</th>
+                                                            <th>Patient</th>
                                                             <th>Transaction Code</th>
                                                             <th>Doctor</th>
                                                             <th>Patient</th>

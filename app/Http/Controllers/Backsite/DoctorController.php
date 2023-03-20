@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Gate;
 // use Illuminate\Http\Testing\File;
 
 // use model here
-use App\Models\Oprational\Doctor;
+use App\Models\Operational\Doctor;
 use App\Models\MasterData\Specialist;
-use App\Models\Oprational\Doctor as OprationalDoctor;
+use App\Models\Operational\Doctor as OprationalDoctor;
 use Illuminate\Auth\Access\Gate as AccessGate;
 use Illuminate\Contracts\Auth\Access\Gate as AuthAccessGate;
 use Illuminate\Support\Facades\Gate as FacadesGate;

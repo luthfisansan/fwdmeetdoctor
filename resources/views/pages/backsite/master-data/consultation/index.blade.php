@@ -210,24 +210,20 @@
             $('#mymodal').on('show.bs.modal', function(e){
                 var button = $(e.relatedTarget);
                 var modal = $(this);
-
                 modal.find('.modal-body').load(button.data("remote"));
                 modal.find('.modal-title').html(button.data("title"));
             });
-
             $('.select-all').click(function () {
                 let $select2 = $(this).parent().siblings('.select2-full-bg')
                 $select2.find('option').prop('selected', 'selected')
                 $select2.trigger('change')
             })
-
             $('.deselect-all').click(function () {
                 let $select2 = $(this).parent().siblings('.select2-full-bg')
                 $select2.find('option').prop('selected', '')
                 $select2.trigger('change')
             })
         });
-
         $('.default-table').DataTable( {
             "order": [],
             "paging": true,

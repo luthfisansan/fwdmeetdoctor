@@ -205,9 +205,7 @@
                                                                 <td style="width:200px;">
                                                                     <span class="badge bg-success mr-1 mb-1">{{ $user_item->detail_user->type_user->name ?? '' }}</span>
                                                                 </td>
-
                                                                 <td class="text-center">
-                                                                    @can('user_show' || 'user_edit' || 'user_delete')
 
                                                                     <div class="btn-group mr-1 mb-1">
                                                                         <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
@@ -237,9 +235,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    @endcan
                                                                 </td>
-
                                                             </tr>
                                                         @empty
                                                             {{-- not found --}}
@@ -285,31 +281,26 @@
             $('#mymodal').on('show.bs.modal', function(e){
                 var button = $(e.relatedTarget);
                 var modal = $(this);
-
                 modal.find('.modal-body').load(button.data("remote"));
                 modal.find('.modal-title').html(button.data("title"));
             });
-
             $('.select-all').click(function () {
                 let $select2 = $(this).parent().siblings('.select2-full-bg')
                 $select2.find('option').prop('selected', 'selected')
                 $select2.trigger('change')
             })
-
             $('.deselect-all').click(function () {
                 let $select2 = $(this).parent().siblings('.select2-full-bg')
                 $select2.find('option').prop('selected', '')
                 $select2.trigger('change')
             })
         });
-
         $('.default-table').DataTable( {
             "order": [],
             "paging": true,
             "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ],
             "pageLength": 10
         });
-
         $(function() {
             $(":input").inputmask();
         });

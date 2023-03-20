@@ -174,14 +174,12 @@
                 $select2.find('option').prop('selected', 'selected')
                 $select2.trigger('change')
             })
-
             $('.deselect-all').click(function () {
                 let $select2 = $(this).parent().siblings('.select2-full-bg')
                 $select2.find('option').prop('selected', '')
                 $select2.trigger('change')
             })
         });
-
         $(function() {
             $(":input").inputmask();
         });

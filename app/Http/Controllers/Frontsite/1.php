@@ -1,23 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\Backsite;
+namespace App\Http\Controllers\Frontsite;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 // use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
-
-// request
-use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
+use Illuminate\Support\Facades\DB;
 
 // use everything here
-use Illuminate\Auth\Access\Gate;
-use Illuminate\Support\Facades\Auth;
+// use Gate;
+use Auth;
 
 // use model here
-use App\Models\MasterData\ConfigPayment;
+use App\Models\User;
 
-class ConfigPaymentController extends Controller
+// thirdparty package
+
+class RegisterController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -36,11 +37,7 @@ class ConfigPaymentController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('config_payment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $config_payment = ConfigPayment::all();
-
-        return view('pages.backsite.master-data.config-payment.index', compact('config_payment'));
+        return view('pages.frontsite.success.signup-success');
     }
 
     /**
@@ -59,7 +56,7 @@ class ConfigPaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($request)
+    public function store(Request $request)
     {
         return abort(404);
     }
@@ -81,11 +78,9 @@ class ConfigPaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ConfigPayment $config_payment)
+    public function edit($id)
     {
-        abort_if(Gate::denies('config_payment_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('pages.backsite.master-data.config-payment.edit', compact('config_payment'));
+        return abort(404);
     }
 
     /**
@@ -95,21 +90,9 @@ class ConfigPaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateConfigPaymentRequest $request, ConfigPayment $config_payment)
+    public function update(Request $request, $id)
     {
-        // get all request from frontsite
-        $data = $request->all();
-
-        // re format before push to table
-        $data['fee'] = str_replace(',', '', $data['fee']);
-        $data['fee'] = str_replace('IDR ', '', $data['fee']);
-        $data['vat'] = str_replace(',', '', $data['vat']);
-
-        // update to database
-        $config_payment->update($data);
-
-        alert()->success('Success Message', 'Successfully updated config payment');
-        return redirect()->route('backsite.config_payment.index');
+        return abort(404);
     }
 
     /**
