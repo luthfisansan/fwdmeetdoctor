@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Http\Requests\ConfigPayment\UpdateConfigPaymentRequest;
 
 // use everything here
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 
 // use model here
