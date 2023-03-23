@@ -2,12 +2,12 @@
 <html lang="en">
     <head>
 
-        @include('includes.frontsite.meta')
+        @include('includes.Frontsite.meta')
 
         <title>@yield('title') | MeetDoctor</title>
 
         @stack('before-style')
-            @include('includes.frontsite.style')
+            @include('includes.Frontsite.style')
         @stack('after-style')
 
     </head>
@@ -16,7 +16,7 @@
         @yield('content')
 
         @stack('before-script')
-            @include('includes.frontsite.script')
+            @include('includes.Frontsite.script')
         @stack('after-script')
 
         {{-- modals --}}
