@@ -2,24 +2,24 @@
 <html lang="en">
     <head>
 
-        @include('includes.frontsite.meta')
+        @include('includes.Frontsite.meta')
 
         <title>@yield('title') | MeetDoctor</title>
 
         @stack('before-style')
-            @include('includes.frontsite.style')
+            @include('includes.Frontsite.style')
         @stack('after-style')
 
     </head>
     <body>
         @include('sweetalert::alert')
 
-        @include('components.frontsite.header')
+        @include('components.Frontsite.header')
             @yield('content')
-        @include('components.frontsite.footer')
+        @include('components.Frontsite.footer')
 
         @stack('before-script')
-            @include('includes.frontsite.script')
+            @include('includes.Frontsite.script')
         @stack('after-script')
 
     </body>
