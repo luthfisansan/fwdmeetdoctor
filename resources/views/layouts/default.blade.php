@@ -14,9 +14,9 @@
     <body>
         @include('sweetalert::alert')
 
-        @include('components.Frontsite.header')
+        @include('components.frontsite.header')
             @yield('content')
-        @include('components.Frontsite.footer')
+        @include('components.frontsite.footer')
 
         @stack('before-script')
             @include('includes.Frontsite.script')
