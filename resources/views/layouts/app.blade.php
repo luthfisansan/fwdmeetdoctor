@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
     <head>
-        @include('includes.backsite.meta')
+        @include('includes.Backsite.meta')
 
         <title>@yield('title') | Meet Doctor Backoffice</title>
 
@@ -10,7 +10,7 @@
         <link href="{{ url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700') }}" rel="stylesheet">
 
         @stack('before-style')
-            @include('includes.backsite.style')
+            @include('includes.Backsite.style')
         @stack('after-style')
 
     </head>
@@ -25,7 +25,7 @@
         @include('components.backsite.footer')
 
         @stack('before-script')
-            @include('includes.backsite.script')
+            @include('includes.Backsite.script')
         @stack('after-script')
 
     </body>
