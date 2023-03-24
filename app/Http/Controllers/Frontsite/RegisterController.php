@@ -37,7 +37,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('pages\frontsite\success\signup-succes');
+        return view('pages.frontsite.success.signup-succes');
     }
 
     /**
